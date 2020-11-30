@@ -1,5 +1,9 @@
 
-
+@media (max-width: 1200px) {
+  #tools, #mapa {
+    overflow-y: scroll;
+  }
+}
 #legend-container{
 	padding-top:10px; 
 	padding-left:10px; 

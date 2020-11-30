@@ -1,8 +1,8 @@
 
 @media (min-width: 1200px) {
   #tools, #mapa {
-    overflow-y: scroll;
-    height: 92.8vh;
+    overflow-y: scroll !important;
+    height: 92.8vh !important;
   }
 }
 #legend-container{

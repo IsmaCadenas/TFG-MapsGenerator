@@ -1,3 +1,8 @@
+@media (max-width: 1200px) {
+  #tools {
+    overflow-y: none;
+  }
+}
 #legend-container{
 	padding-top:10px; 
 	padding-left:10px; 

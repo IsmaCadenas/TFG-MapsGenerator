@@ -481,7 +481,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 	<div class="alert alert-danger text-center" id="loadErrorFormat" style="margin-top:5px;width:97%;display: none;position:absolute; z-index:10;" th:text="#{map.archivoErroneo}" >El archivo cargado no tiene el formato correcto</div>
 	<div id="principalContainer" class="row">
 		
-			<div id="tools" class="col-4 " style="height: 100%; overflow-y: auto;">
+			<div id="tools" class="col-4 " style="height: 100%; overflow-y: none;">
 			
 				
 					<form id="form" style="" th:object="${mapForm}" th:action="${edit}? @{/editMap} : @{/saveMap}" method="post">
@@ -856,7 +856,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 				
 			</div>
 
-			<div id="mapa" class="col-8" style="height: 100%; overflow-y: auto;" >
+			<div id="mapa" class="col-8" style="height: 100%; overflow-y: none;" >
 				<div id="contenedor" class="mapcontainer" style="padding:10px">
 					<center><div id="map-container" style = "margin-top:10px; width: 100%;" ><div class="map"><h1 th:text="#{map.loading}">Loading map</h1></div></div></center>
 					

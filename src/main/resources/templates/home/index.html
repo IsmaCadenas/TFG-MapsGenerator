@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/nav" />
+
+	<div id="container" class="container-fluid"  >
+		<div id="notification"
+			th:style="${messageMyUserEdited} ? 'display:visibility' : 'display:none'"
+			class="alert alert-success ">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<p class="text-center" th:if="${listSuccessMessage}"
+				th:text="${listSuccessMessage}"></p>
+		</div>
+		<div class="row">
+			<div sec:authorize="isAuthenticated()" class="col col-sm-3" >
+				<div style="margin-bottom: 10px;">
+					<div>
+						<h2 class="text-light" th:text="#{index.perfil}">Mi perfil</h2>
+					</div>
+					<div id="nav-list" class="list-group">
+					  <a sec:authorize="hasRole('ROLE_ADMIN')" id="linknav" class="list-group-item list-group-item-action list-group-item-dark text-light" href="#" th:href="@{/userList}" th:text="#{user.admin}">Administrar usuarios</a>
+					  <a sec:authorize="hasRole('ROLE_ADMIN')" id="linknav" class="list-group-item list-group-item-action list-group-item-dark text-light" href="#" th:href="@{/userForm}" th:text="#{form.create}">Crear usuarios</a>
+					  <a sec:authorize="hasRole('ROLE_ADMIN')" id="linknav" class="list-group-item list-group-item-action list-group-item-dark text-light" href="#" th:href="@{/uploadedMaps}" th:text="#{uploadedMaps}">Mapas propuestos</a>
+					  <a href="/editUser" id="linknav" class="list-group-item list-group-item-action list-group-item-dark text-light" th:href="@{/editUser}" th:text="#{nav.account}">Mi cuenta</a>
+					  <a name="myMaps" href="/myMaps" id="linknav" class="list-group-item list-group-item-action list-group-item-dark  text-light" th:href="@{/myMaps}" th:text="#{nav.mymaps}">Mis mapas</a>
+					  
+					</div>
+				</div>
+				<div>
+					<h2 class="text-light" th:text="#{index.lastMaps}">Mis últimos mapas</h2>
+				</div>
+				<div class="table-responsive">
+					<table id="mapaList" class="table table-hover table-dark table-striped ">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col" th:text="#{index.mapas}">Mpas</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="map: ${mapList}">
+								<td ><a id="linkmap" th:text="${map.name}" href="#" th:href="@{'/editMap/'+ ${map.id}}"></td>
+								<td>
+									<span>
+										<a id="linkmap" href="#" th:href="@{'/editMap/'+ ${map.id}}"><i class="fas fa-edit"></i></a>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
+			<div class="col"  style="">
+				<div>
+					<h2 class="text-light" th:text="#{index.mapasMasUtilizados}">Mapas más utilizados</h2>
+				</div>
+				<div class="row row-cols-1 row-cols-md-3">
+				  <div class="col mb-4">
+				  <a id="linkmap" href="/map/FR" >
+				    <div id="cardmap" class="card h-100">
+				      <img alt="Img" src="./../img/france_map.png" class="card-img-top">
+				      <div id="cardmap" class="card-body ">
+				        <h5 class="card-title" th:text="#{Francia}">France</h5>
+						<p class="card-text"  th:text="#{index.infoFrance}">Mapa de las regiones de Francia</p>
+				      </div>
+				    </div>
+				    </a>
+				  </div>
+				  <div class="col mb-4">
+				  <a id="linkmap" href="/map/world_countries_mercator" >
+				    <div id="cardmap" class="card h-100">
+				      <img alt="Img" src="./../img/world_map.png" class="card-img-top">
+				      <div id="cardmap" class="card-body">
+				        <h5 class="card-title" th:text="#{Mundo}">Mundo</h5>
+						<p class="card-text" th:text="#{index.infoMundo}">Mapa del mundo con todos sus países</p>
+				      </div>
+				    </div>
+				    </a>
+				  </div>
+				  <div class="col mb-4">
+				  <a id="linkmap" href="/map/ES" >
+				    <div id="cardmap" class="card h-100">
+				      <img alt="Img" src="./../img/spain_map.png" class="card-img-top">
+				      <div id="cardmap" class="card-body">
+				        <h5 class="card-title" th:text="#{España}">Spain</h5>
+				        <p class="card-text" th:text="#{index.infoSpain}">Mapa de las provincias de España</p>
+				      </div>
+				    </div>
+				    </a>
+				  </div>
+				  <div class="col mb-4">
+				  <a id="linkmap" href="/map/US" >
+				    <div id="cardmap" class="card h-100">
+				      <img alt="Img" src="./../img/usa_map.png" class="card-img-top">
+				      <div id="cardmap" class="card-body">
+				        <h5 class="card-title" th:text="#{USA}">USA</h5>
+						<p class="card-text" th:text="#{index.infoUSA}">Mapa de los estados de USA</p>
+				      </div>
+				    </div>
+				    </a>
+				  </div>
+				  
+				</div>
+				<div class="row row-cols-1 row-cols-md-3">
+				  <div class="col mb-4">
+				  <a id="linkmap" href="/map/europa" >
+				    <div id="cardmap" class="card h-100">
+				      <img alt="Img" src="./../img/europe_map.png" class="card-img-top">
+				      <div id="cardmap" class="card-body">
+				        <h5 class="card-title" th:text="#{Europa}">Europe</h5>
+						<p class="card-text" th:text="#{index.infoEuropa}">Mapa de los paises de Europa</p>
+				      </div>
+				    </div>
+				    </a>
+				  </div>
+				  <div class="col mb-4">
+				  <a id="linkmap" href="/map/CN" >
+				    <div id="cardmap" class="card h-100">
+				      <img alt="Img" src="./../img/china_map.png" class="card-img-top">
+				      <div id="cardmap" class="card-body">
+				        <h5 class="card-title" th:text="#{China}">China</h5>
+						<p class="card-text" th:text="#{index.infoChina}">Mapa de las provincias de China</p>
+				      </div>
+				    </div>
+				    </a>
+				  </div>
+				  <div class="col mb-4">
+				  <a id="linkmap" href="/map/IT" >
+				    <div id="cardmap" class="card h-100">
+				      <img alt="Img" src="./../img/italy_map.png" class="card-img-top">
+				      <div id="cardmap" class="card-body">
+				        <h5 class="card-title" th:text="#{Italia}">Itailia</h5>
+				        <p class="card-text" th:text="#{index.infoItalia}">Mapa de las provincias de Italia</p>
+				      </div>
+				    </div>
+				    </a>
+				  </div>
+				  <div class="col mb-4">
+				  <a id="linkmap" href="/map/asturias" >
+				    <div id="cardmap" class="card h-100">
+				      <img alt="Img" src="./../img/asturias_map.png" class="card-img-top">
+				      <div id="cardmap" class="card-body">
+				        <h5 class="card-title" >Asturias</h5>
+						<p class="card-text" th:text="#{index.infoAsturias}">Mapa de los concejos de Asturias</p>
+				      </div>
+				    </div>
+				    </a>
+				  </div>
+				  
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>

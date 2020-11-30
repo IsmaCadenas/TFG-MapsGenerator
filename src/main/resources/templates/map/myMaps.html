@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+<body>
+<link rel="stylesheet" type="text/css" href="static/css/table.css" th:href="@{/css/table.css}">
+	<!-- Barra de Navegación superior -->
+	<nav th:replace="fragments/nav" />
+
+<div id="container" class="container container-form">
+	<h2 class="text-light" th:text="#{nav.mymaps}" >Mis mapas</h2>
+		<div class="table-responsive ">
+			<table id="mapsList" class="table table-hover table-dark table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col" th:text="#{form.name}">Nombre</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="bodymap" th:each="map: ${mapList}">
+						<td th:text="${map.name}"></td>
+						<td><span>
+								<a id="edit" href="#" th:href="@{'/editMap/'+ ${map.id}}"><i
+									class="fas fa-edit text-light"></i></a>
+						</span> <span>
+								| <a id="delete" href="#"
+								th:onclick="'javascript:confirmDelete(\''+ ${map.id} +'\');'"><i
+									class="fas fa-trash-alt text-light"></i></a>
+						</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="alert alert-danger text-center" th:if="${listErrorMessage}" th:text="${listErrorMessage}">Error MEssage</div>
+			</div>
+			
+			
+			<script type="text/javascript">
+			function confirmDelete(id) {
+				$('#deleteModal').modal('show');
+				$("#mapIdHiddenInput").val(id);
+			}
+
+			function deleteMap() {
+				var id = $("#mapIdHiddenInput").val();
+				window.location = "deleteMap/" + id;
+			}
+		</script>
+		</div>
+		<div th:include="map/confirm-delete-map-modal.html" th:remove="tag"></div>
+</body>
+</html>

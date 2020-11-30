@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head" />
+<body>
+	<!-- Barra de Navegación superior -->
+	<nav th:replace="fragments/nav" />
+	
+	
+	
+	
+	<div id="container" class="container">
+		<div th:include="user-form/user-form.html" th:remove="tag"></div>
+	</div>
+		
+	
+
+	
+	<div th:if="${editMode}" th:include="user-form/change-password.html" th:remove="tag"></div>
+	<div th:include="user-form/confirm-delete-modal.html" th:remove="tag"></div>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!-- head.html -->
+<head>
+    <title>Maps Generator</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--JQUERY-->
+    <script
+ 		src="https://code.jquery.com/jquery-3.3.1.min.js"
+ 			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+ 			crossorigin="anonymous"></script>
+    
+    
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+
+
+    
+    <!-- DATA TABLE -->
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">	
+	
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="static/css/login.css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css" href="static/css/custom.css" th:href="@{/css/custom.css}">
+    <link rel="stylesheet" type="text/css" href="static/css/user-form.css" th:href="@{/css/user-form.css}">
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+     
+    <!--  Javascript internacionalizacion -->
+     
+     <script type="text/javascript">
+     /*<![CDATA[*/
+     /**
+      * @param String name
+      * @return String
+      */
+     function getParameterByName(name) {
+         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+         results = regex.exec(location.search);
+         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+     }
+     var ln = getParameterByName('lang');
+     $(document).ready(function() {
+    	 ln = getParameterByName('lang');
+ 		if(ln===""){
+ 			ln = window.navigator.language||navigator.browserLanguage;
+ 		}
+    		if(ln.includes('es') || ln.includes('ES') ){
+    			 $('#userList').DataTable( {
+        			 "language":{
+         			    "sProcessing":     "Procesando...",
+         			    "sLengthMenu":     "Mostrar _MENU_ usuarios",
+         			    "sZeroRecords":    "No se encontraron usuarios",
+         			    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+         			    "sInfo":           "Mostrando usuarios del _START_ al _END_ de un total de _TOTAL_ usuarios",
+         			    "sInfoEmpty":      "Mostrando usuarios del 0 al 0 de un total de 0 usuarios",
+         			    "sInfoFiltered":   "(filtrado de un total de _MAX_ usuarios)",
+         			    "sInfoPostFix":    "",
+         			    "sSearch":         "Buscar:",
+         			    "sUrl":            "",
+         			    "sInfoThousands":  ",",
+         			    "sLoadingRecords": "Cargando...",
+         			    "oPaginate": {
+         			        "sFirst":    "Primero",
+         			        "sLast":     "Último",
+         			        "sNext":     "Siguiente",
+         			        "sPrevious": "Anterior"
+         			    },
+         			    "oAria": {
+         			        "sSortAscending":  ": activar para ordenar la columna de manera ascendente",
+         			        "sSortDescending": ": activar para ordenar la columna de manera descendente"
+         			    },
+         			    "buttons": {
+         			        "copy": "Copiar",
+         			        "colvis": "Visibilidad"
+         			    }
+         			}
+    			} );
+    		}else if(ln.includes('it') || ln.includes('IT') ){
+   			 $('#userList').DataTable( {
+    			 "language":{
+     			    "sProcessing":     "Elavorazione...",
+     			    "sLengthMenu":     "Visualizza _MENU_ utenti",
+     			    "sZeroRecords":    "Nessun utente trovato",
+     			    "sEmptyTable":     "Nessun dato presente nella tabella",
+     			    "sInfo":           "Vista da _START_ a _END_ di _TOTAL_ utenti",
+     			    "sInfoEmpty":      "Vista da 0 a 0 di 0 utenti",
+     			    "sInfoFiltered":   "(filtrati da _MAX_ utenti totali)",
+     			    "sInfoPostFix":    "",
+     			    "sSearch":         "Cerca:",
+     			    "sUrl":            "",
+     			    "sInfoThousands":  ",",
+     			    "sLoadingRecords": "Caricamento...",
+     			    "oPaginate": {
+     			        "sFirst":    "Inizio",
+     			        "sLast":     "Fine",
+     			        "sNext":     "Successivo",
+     			        "sPrevious": "Precedente"
+     			    },
+     			    "oAria": {
+     			        "sSortAscending":  ": attiva per ordinare la colonna in ordine crescente",
+     			        "sSortDescending": ": attiva per ordinare la colonna in ordine decrescente"
+     			    },
+     			    "buttons": {
+     			        "copy": "Copia",
+     			        "colvis": "Visibilità"
+     			    }
+     			}
+			} );
+		}else if(ln.includes('fr') || ln.includes('FR') ){
+   			 $('#userList').DataTable( {
+    			 "language":{
+     			    "sProcessing":     "Traitement...",
+     			    "sLengthMenu":     "Afficher _MENU_ utilisateurs",
+     			    "sZeroRecords":    "Aucun élément correspondant trouvé",
+     			    "sEmptyTable":     "Aucune donnée disponible dans le tableau",
+     			    "sInfo":           "Affichage de l'élément _START_ à _END_ sur _TOTAL_ utilisateurs",
+     			    "sInfoEmpty":      "Affichage de l'élément 0 à 0 sur 0 utilisateurs",
+     			    "sInfoFiltered":   "(filtré à partir de _MAX_ éléments au total)",
+     			    "sInfoPostFix":    "",
+     			    "sSearch":         "Rechercher :",
+     			    "sUrl":            "",
+     			    "sInfoThousands":  ",",
+     			    "sLoadingRecords": "Chargement...",
+     			    "oPaginate": {
+     			        "sFirst":    "Premier",
+     			        "sLast":     "Dernier",
+     			        "sNext":     "Suivant",
+     			        "sPrevious": "Précédent"
+     			    },
+     			    "oAria": {
+     			        "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+     			        "sSortDescending": ": activer pour trier la colonne par ordre décroissant"
+     			    },
+     			    "buttons": {
+     			        "copy": "Copier",
+     			        "colvis": "Visibilité"
+     			    }
+     			}
+			} );
+		}else if(ln.includes('en') || ln.includes('EN') ){
+    			 $('#userList').DataTable( {
+        			 "language":{
+         			    "sProcessing":     "Processing...",
+         			    "sLengthMenu":     "Show _MENU_ users",
+         			    "sZeroRecords":    "No users found",
+         			    "sEmptyTable":     "No data available in this table",
+         			    "sInfo":           "Showing users from _START_ to _END_ of _TOTAL_ users",
+         			    "sInfoEmpty":      "Showing users from 0 to 0 of 0 users",
+         			    "sInfoFiltered":   "(filtered from _MAX_ users)",
+         			    "sInfoPostFix":    "",
+         			    "sSearch":         "Search:",
+         			    "sUrl":            "",
+         			    "sInfoThousands":  ",",
+         			    "sLoadingRecords": "Loading...",
+         			    "oPaginate": {
+         			        "sFirst":    "First",
+         			        "sLast":     "Last",
+         			        "sNext":     "Next",
+         			        "sPrevious": "Previous"
+         			    },
+         			    "oAria": {
+         			        "sSortAscending":  ": activate to sort column ascending",
+         			        "sSortDescending": ": activate to sort column descending"
+         			    },
+         			    "buttons": {
+         			        "copy": "Copy",
+         			        "colvis": "Visibility"
+         			    }
+         			}
+    			} );
+    		}else{
+    			 $('#userList').DataTable( {
+        			 
+    			} );
+    		}
+    	
+		});
+     /*]]>*/
+ 	</script>
+ 	
+ 	<script type="text/javascript">
+     /**
+      * @param String name
+      * @return String
+      */
+     function getParameterByName(name) {
+         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+         results = regex.exec(location.search);
+         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+     }
+     var ln = getParameterByName('lang');
+     $(document).ready(function() {
+    		ln = getParameterByName('lang');
+    		if(ln===""){
+    			ln = window.navigator.language||navigator.browserLanguage;
+    		}
+    		if(ln.includes('es') || ln.includes('ES') ){
+    			 $('#mapsList').DataTable( {
+        			 "language":{
+         			    "sProcessing":     "Procesando...",
+         			    "sLengthMenu":     "Mostrar _MENU_ mapas",
+         			    "sZeroRecords":    "No se encontraron mapas",
+         			    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+         			    "sInfo":           "Mostrando mapas del _START_ al _END_ de un total de _TOTAL_ mapas",
+         			    "sInfoEmpty":      "Mostrando mapas del 0 al 0 de un total de 0 mapas",
+         			    "sInfoFiltered":   "(filtrado de un total de _MAX_ mapas)",
+         			    "sInfoPostFix":    "",
+         			    "sSearch":         "Buscar:",
+         			    "sUrl":            "",
+         			    "sInfoThousands":  ",",
+         			    "sLoadingRecords": "Cargando...",
+         			    "oPaginate": {
+         			        "sFirst":    "Primero",
+         			        "sLast":     "Último",
+         			        "sNext":     "Siguiente",
+         			        "sPrevious": "Anterior"
+         			    },
+         			    "oAria": {
+         			        "sSortAscending":  ": activar para ordenar la columna de manera ascendente",
+         			        "sSortDescending": ": activar para ordenar la columna de manera descendente"
+         			    },
+         			    "buttons": {
+         			        "copy": "Copiar",
+         			        "colvis": "Visibilidad"
+         			    }
+         			}
+    			} );
+    		}else if(ln.includes('it') || ln.includes('IT') ){
+   			 $('#mapsList').DataTable( {
+    			 "language":{
+     			    "sProcessing":     "Elavorazione...",
+     			    "sLengthMenu":     "Visualizza _MENU_ mappe",
+     			    "sZeroRecords":    "Nessun mappe trovato",
+     			    "sEmptyTable":     "Nessun mappe presente nella tabella",
+     			    "sInfo":           "Vista da _START_ a _END_ di _TOTAL_ mappe",
+     			    "sInfoEmpty":      "Vista da 0 a 0 di 0 mappe",
+     			    "sInfoFiltered":   "(filtrati da _MAX_ mappe totali)",
+     			    "sInfoPostFix":    "",
+     			    "sSearch":         "Cerca:",
+     			    "sUrl":            "",
+     			    "sInfoThousands":  ",",
+     			    "sLoadingRecords": "Caricamento...",
+     			    "oPaginate": {
+     			        "sFirst":    "Inizio",
+     			        "sLast":     "Fine",
+     			        "sNext":     "Successivo",
+     			        "sPrevious": "Precedente"
+     			    },
+     			    "oAria": {
+     			        "sSortAscending":  ": attiva per ordinare la colonna in ordine crescente",
+     			        "sSortDescending": ": attiva per ordinare la colonna in ordine decrescente"
+     			    },
+     			    "buttons": {
+     			        "copy": "Copia",
+     			        "colvis": "Visibilità"
+     			    }
+     			}
+			} );
+		}else if(ln.includes('fr') || ln.includes('FR') ){
+   			 $('#mapsList').DataTable( {
+    			 "language":{
+     			    "sProcessing":     "Traitement...",
+     			    "sLengthMenu":     "Afficher _MENU_ cartes",
+     			    "sZeroRecords":    "Aucun élément correspondant trouvé",
+     			    "sEmptyTable":     "Aucune donnée disponible dans le tableau",
+     			    "sInfo":           "Affichage de l'élément _START_ à _END_ sur _TOTAL_ cartes",
+     			    "sInfoEmpty":      "Affichage de l'élément 0 à 0 sur 0 cartes",
+     			    "sInfoFiltered":   "(filtré à partir de _MAX_ éléments au total)",
+     			    "sInfoPostFix":    "",
+     			    "sSearch":         "Rechercher :",
+     			    "sUrl":            "",
+     			    "sInfoThousands":  ",",
+     			    "sLoadingRecords": "Chargement...",
+     			    "oPaginate": {
+     			        "sFirst":    "Premier",
+     			        "sLast":     "Dernier",
+     			        "sNext":     "Suivant",
+     			        "sPrevious": "Précédent"
+     			    },
+     			    "oAria": {
+     			        "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+     			        "sSortDescending": ": activer pour trier la colonne par ordre décroissant"
+     			    },
+     			    "buttons": {
+     			        "copy": "Copier",
+     			        "colvis": "Visibilité"
+     			    }
+     			}
+			} );
+		}else if(ln.includes('en') || ln.includes('EN') ){
+    			 $('#mapsList').DataTable( {
+        			 "language":{
+         			    "sProcessing":     "Processing...",
+         			    "sLengthMenu":     "Show _MENU_ maps",
+         			    "sZeroRecords":    "No maps found",
+         			    "sEmptyTable":     "No data available in this table",
+         			    "sInfo":           "Showing maps from _START_ to _END_ of _TOTAL_ maps",
+         			    "sInfoEmpty":      "Showing maps from 0 to 0 of 0 maps",
+         			    "sInfoFiltered":   "(filtered from _MAX_ maps)",
+         			    "sInfoPostFix":    "",
+         			    "sSearch":         "Search:",
+         			    "sUrl":            "",
+         			    "sInfoThousands":  ",",
+         			    "sLoadingRecords": "Loading...",
+         			    "oPaginate": {
+         			        "sFirst":    "First",
+         			        "sLast":     "Last",
+         			        "sNext":     "Next",
+         			        "sPrevious": "Previous"
+         			    },
+         			    "oAria": {
+         			        "sSortAscending":  ": activate to sort column ascending",
+         			        "sSortDescending": ": activate to sort column descending"
+         			    },
+         			    "buttons": {
+         			        "copy": "Copy",
+         			        "colvis": "Visibility"
+         			    }
+         			}
+    			} );
+    		}else{
+    			 $('#mapsList').DataTable( {
+        			 
+    			} );
+    		}
+    	
+		});
+ 	</script>
+ 	
+     <script type="text/javascript" > 
+     
+		
+	     $(document).ready(function() {
+	    		$("#languageDropdownMenuButton a").click(function(e) {    			
+	    			e.preventDefault(); // cancel the link behaviour
+	    			var languageSelectedText = $(this).text();
+	    			var languageSelectedValue = $(this).attr("value");
+	    			$("#btnLanguage").text(languageSelectedText);
+	    			window.location.replace('?lang=' + languageSelectedValue);
+	    			
+	    			
+	    		});
+	    		
+	    	});
+     
+     </script>
+     <script type="text/javascript">
+     var count = 0;
+		window.onload = function() {
+		 if(count==0){
+			 var ln = window.navigator.language||navigator.browserLanguage;
+				window.location.replace('?lang=' + ln);
+				count=10;
+		 }
+			break;
+			
+		}
+	</script>
+    	
+    	
+</head>
+
+

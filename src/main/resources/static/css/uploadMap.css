@@ -1,0 +1,7 @@
+.card-body{
+	background-color:#848484;
+	color: #f8f9fa;
+}
+.card-body>a{
+	color: #ffffff;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+<link rel="stylesheet" type="text/css" href="static/css/uploadMap.css"
+	th:href="@{/css/uploadMap.css}">
+<link rel="stylesheet" type="text/css" href="static/css/table.css"
+	th:href="@{/css/table.css}">
+
+<body>
+	<nav th:replace="fragments/nav" />
+
+
+	<div id="container" class="container container-form">
+	<div class="alert alert-success text-center" role="alert" id="loadSuccess" style="margin-top:5px;width:80%;display: none;position:absolute; z-index:10;" th:text="#{map.cargadoCorrecto}">El mapa se ha cargado correctamente</div>
+	<div class="alert alert-danger text-center" id="loadErrorFormat" style="margin-top:5px;width:80%;display: none;position:absolute; z-index:10;" th:text="#{map.archivoErroneo}" >El archivo cargado no tiene el formato correcto</div>		
+	<h1 class="text-light" th:text="#{uploadMap.upload}">Sube tu propio mapa a la aplicación</h1>
+		<p class="text-light" th:text="#{uploadMap.explicacion}">Para subir un mapa a la aplicación debes
+			seguir los siguientes pasos:</p>
+
+		<div id="accordion">
+			<div class="card bg-dark">
+				<div class="card-header" id="headingOne">
+					<h5 class="mb-0">
+						<button class="btn btn-link text-light font-weight-bold" data-toggle="collapse"
+							data-target="#collapseOne" aria-expanded="true"
+							aria-controls="collapseOne" th:text="#{uploadMap.title1}" >1. Encuentra un mapa en
+							formato SVG</button>
+					</h5>
+				</div>
+
+				<div id="collapseOne" class="collapse show "
+					aria-labelledby="headingOne" data-parent="#accordion">
+					<div class="card-body" >
+						<a th:text="#{uploadMap.explicacion1}"></a><a class="font-weight-bold" href="https://simplemaps.com/resources/svg-maps"> Simple Maps</a>
+					 	<a th:text="#{uploadMap.explicacion1.2}">o en </a><a class="font-weight-bold" href="https://commons.wikimedia.org/wiki/Category:SVG_maps"> Wikimedia Commons</a>.
+					 </div>
+				</div>
+			</div>
+			<div class="card bg-dark">
+				<div class="card-header " id="headingTwo">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed text-light font-weight-bold" data-toggle="collapse"
+							data-target="#collapseTwo" aria-expanded="false"
+							aria-controls="collapseTwo" th:text="#{uploadMap.title2}">2. Convierte el archivo SVG
+							a un formato JS</button>
+					</h5>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordion">
+					<div class="card-body" >
+						<a th:text="#{uploadMap.explicacion2}"></a>
+						<a href="https://www.vincentbroute.fr/mapael/svg-to-mapael.php" class="font-weight-bold"> SVG to Mapael</a>. 
+					</div>
+				</div>
+			</div>
+			<div class="card bg-dark">
+				<div class="card-header" id="headingThree">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed text-light font-weight-bold" data-toggle="collapse"
+							data-target="#collapseThree" aria-expanded="false"
+							aria-controls="collapseThree" th:text="#{uploadMap.title3}">3. Carga el archivo JS en
+							la aplicación</button>
+					</h5>
+				</div>
+				<div id="collapseThree" class="collapse"
+					aria-labelledby="headingThree" data-parent="#accordion">
+					<div class="card-body" th:text="#{uploadMap.explicacion3}">En este paso debes cargar el archivo con formato JS obtenido previamente
+					en la aplicación. Para ello, pincha en el botón "cargar archivo" y selecciónalo.</div>
+				</div>
+			</div>
+			<div class="card bg-dark">
+				<div class="card-header" id="headingFour">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed text-light font-weight-bold" data-toggle="collapse"
+							data-target="#collapseFour" aria-expanded="false"
+							aria-controls="collapseFour" th:text="#{uploadMap.title4}">4. Proporciona un nombre al mapa y a
+							las áreas</button>
+					</h5>
+				</div>
+				<div id="collapseFour" class="collapse"
+					aria-labelledby="headingFour" data-parent="#accordion">
+					<div class="card-body" th:text="#{uploadMap.explicacion4}">Una vez se haya cargado el mapa en la aplicación, aparecerá un recuadro para darle
+					un nombre y una tabla con todas
+					las áreas de este. Podrás proporcionarles un nombre para que al pasar el ratón por encima se
+					visualice. Si no quieres nombrarlas puedes dejar los recuadros vacíos, pero es obligatorio dar un 
+					nombre al mapa. Una vez rellenados todos los datos pincha en el botón "subir mapa" y quedará pendiente de aprobación.</div>
+				</div>
+			</div>
+		</div>
+
+		
+		<form th:object="${mapDTO}" th:action="@{/uploadMap}" method="post">
+			<div id="newIds">
+				<div style="margin-top:10px;visibility:hidden" id="namemap" class="form-group">
+					<h3 class=" text-light" th:text="#{map.mapname}" >Nombre del mapa</h3>
+					<div class="">					
+						<input id="mapname" class="text-light bg-dark form-control " type="text" th:field="${mapDTO.name}">
+					</div>
+					
+					<h3 class="text-light" th:text="#{uploadMap.nombreDeLasAreas}"> Nombre de las áreas </h3>
+					
+				</div>
+				<label id="inputJS" class="btn btn-danger btn-block" for="file-input" th:text="#{uploadMap.uploadJS}" >Cargar archivo js</label> 
+				<input hidden class="form-control-file" type="file" id="file-input">
+			</div>
+			<button style="margin-top: 10px;visibility:hidden" type='submit' id="loadmap" class='btn btn-primary btn-block' th:text="#{nav.uploadmaps}" >Subirr mapa</button>
+								    	
+			<input type="text" id="areas-input" th:field="${mapDTO.inputAreas}" hidden> 
+			<input type="text" id="js-input" th:field="${mapDTO.inputJS}" hidden> 
+			
+		</form>
+		
+	</div>
+
+	<script type="text/javascript">
+	/*<![CDATA[*/
+	  if([[${success}]]){
+		  $("#loadSuccess").css("display", "flex");
+          setTimeout(function(){	$("#loadSuccess").hide('slow'); }, 3000);
+	  }
+	  /*]]>*/
+	var data = { }; 
+	function loadId(value){
+		var dato=$("#"+value).val()
+		var id= $("#labelId"+value).text();
+		data[id] = {
+				 dato
+            };
+		var l = JSON.stringify(data);
+    	$("#areas-input").val(l);
+    	
+
+    	var fs = require('fs'); 
+    	 fs.writeFile(fileName, content, function (err) {
+             if(err){
+                 alert("Ha ocurrido un error creando el archivo: "+ err.message)
+             }
+                          
+         });
+	}
+						        function leerArchivo(e) {
+								  var archivo = e.target.files[0];
+								  if (!archivo) {
+								    return;
+								  }
+								  var lector = new FileReader();
+								  lector.onload = function(e) {
+								    var contenido = e.target.result;
+								    $("#js-input").val(contenido.replace("// CommonJS", '').replace("// AMD. Register as an anonymous module.", '').replace("// Browser globals", '').replace("// todo", ''));
+								    
+								    try{
+								    	var counterId=0;
+								    	var regiones = contenido.split("'elems': {");
+								    	var ids = regiones[1].split("}");
+								    	var id= ids[0].split("\",");
+								    	
+								    	for(i=0; i < id.length ; i++){
+								    		var name = id[i].split(":");
+								    		var label = "<label id='labelId"+ counterId+"'>"+ name[0].replace("\n", '').replace("\t", '').replace(/['"]+/g, '').trim() +"</label>";
+								    		var input = "<input class=\"text-light bg-dark form-control\" onChange=loadId(id) id='"+counterId+"'type='text'>";
+								    		var div = "<div id='id"+ counterId +"'>"+label+ input+"</div>"
+								    		
+								    		$("#newIds").append(div);
+								    		
+								    		counterId++;
+								    	}
+								    	
+								    	
+								    	var top = document.getElementById("newIds");
+								    	var nested = document.getElementById("inputJS");
+								    	var garbage = top.removeChild(nested);
+								    	$("#namemap").css("visibility","visible");
+									    $("#loadmap").css("visibility","visible");
+								    }catch (e){
+								    	$("#loadErrorFormat").css("display", "flex");
+							            setTimeout(function(){	$("#loadErrorFormat").hide('slow'); }, 3000);
+								    }
+								    
+								    
+								   
+								  };
+								  lector.readAsText(archivo);
+								 
+								}
+								
+								
+								document.getElementById('file-input').addEventListener('change', leerArchivo, false);
+						    </script>
+</body>
+</html>
+

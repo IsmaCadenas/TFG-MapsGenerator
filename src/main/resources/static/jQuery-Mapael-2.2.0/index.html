@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Minimal example</title>
+    <style type="text/css">
+        body {
+            color: #5d5d5d;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .mapcontainer {
+            height: 90vh;
+            width: 90vh;
+            margin: auto;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
+    <script src="./js/jquery.mapael.js" charset="utf-8"></script>
+    <script src="./js/maps/france_departments.js" charset="utf-8"></script>
+    <script src="./js/maps/world_countries.js" charset="utf-8"></script>
+    <script src="./js/maps/usa_states.js" charset="utf-8"></script>
+    <script src="./js/maps/russia.js" charset="utf-8"></script>
+   <script type="text/javascript">
+       
+        $(function () {
+            $(".mapcontainer").mapael({
+                map: {
+                    name: "france_departments",
+                    zoom: {
+                        enabled: true
+                    },
+                    defaultArea: {
+                        attrs: {
+                            fill: "white",
+                            stroke: "black",
+                            cursor: "pointer"
+                        },
+                        attrsHover: {
+                            animDuration: 50,
+                            fill: "white",
+                        },
+                        text: {
+                            attrs: {
+                                cursor: "pointer",
+                                "font-size": 30,
+                                fill: "#000"
+                            },
+                            attrsHover: {
+                                animDuration: 0
+                            }
+                        },
+                        tooltip: { 
+                            content: function (e, id, mapElem, textElem) {
+                                console.log(id);
+                            }
+                        },
+                        eventHandlers: {
+                            click: function (e, id, mapElem, textElem) {
+                                var newData = {
+                                    'areas': {}
+                                };
+                                console.log("Click: "+id);
+                                if (mapElem.originalAttrs.fill == "white") {
+                                    newData.areas[id] = {
+                                        attrs: {
+                                            fill: document.getElementById("selectedColor").value
+                                        }
+                                    };
+                                } else {
+                                    newData.areas[id] = {
+                                        attrs: {
+                                            fill: "white"
+                                        }
+                                    };
+                                }
+                                $(".mapcontainer").trigger('update', [{mapOptions: newData}]);
+                            },
+                            dblclick: function (e, id, mapElem, textElem) {
+                                var newData = {
+                                    'areas': {}
+                                };
+                                if (mapElem.originalAttrs.fill == "yellow") {
+                                    newData.areas[id] = {
+                                        attrs: {
+                                            fill: "red"
+                                        }
+                                    };
+                                } else {
+                                    newData.areas[id] = {
+                                        attrs: {
+                                            fill: "yellow"
+                                        }
+                                    };
+                                }
+                                $(".mapcontainer").trigger('update', [{mapOptions: newData}]);
+                            }
+                        }
+                    }
+                },
+                
+                areas: {
+                    "department-29": {
+                        text: {
+                            content: "dblclick",
+                            position: "top"
+                        },
+                        attrs: {
+                            fill: "#0088db"
+                        },
+                        tooltip: {
+                            content: "Finistère (29)"
+                        },
+                        eventHandlers: {
+                            click: function () {
+                            },
+                            dblclick: function (e, id, mapElem, textElem) {
+                                var newData = {
+                                    'areas': {}
+                                };
+                                if (mapElem.originalAttrs.fill == "#5ba4ff") {
+                                    newData.areas[id] = {
+                                        attrs: {
+                                            fill: "#0088db"
+                                        }
+                                    };
+                                } else {
+                                    newData.areas[id] = {
+                                        attrs: {
+                                            fill: "#5ba4ff"
+                                        }
+                                    };
+                                }
+                                $(".mapcontainer").trigger('update', [{mapOptions: newData}]);
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <input id="selectedColor" onClick="selectColor()"  type="color" >
+<div class="mapcontainer">
+    <div class="map">Alternative content</div>
+</div>
+</body>
+</html>

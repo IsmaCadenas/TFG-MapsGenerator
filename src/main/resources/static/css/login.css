@@ -1,0 +1,71 @@
+#main-section{
+    margin:0 auto;
+    margin-top:15%;
+    margin-bottom:15%;
+    padding: 0;
+}
+
+#modal-box{
+    background-color: #f5f6f7;
+    opacity: .85;
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #848484;
+}
+#user-img{
+    margin-top: -50px;
+    margin-bottom: 35px;
+}
+
+#user-img img{
+    width: 100xp;
+    height: 100px;
+    box-shadow: 0px 0px 3px #848484;
+    border-radius: 50%;
+}
+
+.form-group-login input{
+    height: 42px;
+    font-size: 18px;
+    border:0;
+    padding-left: 54px;
+    border-radius: 5px;
+    margin: 20px 0px;
+    
+}
+
+.form-group-login::before{
+    font-family: "Font Awesome\ 5 Free";
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top:4px;
+    
+}
+
+.form-group-login#user-group::before{
+    content: "\f007";
+    
+}
+
+.form-group-login#contrasena-group::before{
+    content: "\f023";
+}
+
+
+#register{
+	 width: 50%;
+}
+
+#confirm{
+	 width: 60%;
+}
+
+.forgot{
+    padding: 10px 0;
+}
+
+.forgot a{
+    color: white;
+}
+
+

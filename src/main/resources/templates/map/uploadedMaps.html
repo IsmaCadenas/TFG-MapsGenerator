@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+<link rel="stylesheet" type="text/css" href="static/css/table.css"
+	th:href="@{/css/table.css}">
+
+<body>
+	<nav th:replace="fragments/nav" />
+
+
+	<div id="container" class="container container-form">
+	<h2 id="mapasPropuestos" class="text-light" th:text="#{uploadedMaps}">Mapas propuestos</h2>
+		<div class="table-responsive">
+			<table id="mapsList" class="table table-hover table-dark table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col" th:text="#{form.name}">Nombre</th>
+						<th scope="col" th:text="#{form.user}">Usuario</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="uploadMap: ${uploadedMapsList}">
+						<td><a id="linkmap"  th:text="${uploadMap.name}"></td>
+						<td><a id="linkmap"  th:text="${uploadMap.nameUser}"></td>
+						<td><a href="#" th:onclick="'javascript:confirmDelete(\''+ ${uploadMap.id} +'\');'">
+								<i class="fas fa-trash-alt text-light"></i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<script type="text/javascript">
+			function confirmDelete(id) {
+				$('#deleteModal').modal('show');
+				$("#mapIdHiddenInput").val(id);
+			}
+
+			function deleteMap() {
+				var id = $("#mapIdHiddenInput").val();
+				window.location = "deleteUploadMap/" + id;
+			}
+		</script>
+			</div>
+			<div th:include="map/confirm-delete-map-modal.html" th:remove="tag"></div>
+	</div>
+</body>
+</html>
+

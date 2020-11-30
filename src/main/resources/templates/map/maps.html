@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+        
+	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"
+		charset="utf-8"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"
+		charset="utf-8"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mapael/2.2.0/js/jquery.mapael.js"
+		integrity="sha512-VoFAunf/Zu2fUqtITACDq0zP7zbcxRNIa6JJCRiLLsXXxhYmoU2YUsTNQl4R0NZGm56PvpjqOs0gjQkfj91x+g=="
+		crossorigin="anonymous"></script>
+	<script src="./../jQuery-Mapael-2.2.0/js/maps/world_countries_mercator.js" charset="utf-8"></script>
+	
+	<link rel="stylesheet" type="text/css" href="static/css/map.css" th:href="@{/css/map.css}">
+	
+<script th:inline="javascript">
+   
+   /*<![CDATA[*/
+	  
+//Variables globales
+//Color inicial de las areas
+var areaInitColor= "#c2c1c1";
+   //Procesar las tooltips
+   var areasTooltip = {'areas': {  } }; 
+   var tooltips = [[${tooltipsText}]];
+   
+   var regiones = tooltips.split(",");
+   for(i=0; i < regiones.length-1 ; i++){
+	   var regiones1 = regiones[i].split(":");
+	   var region1 = regiones1[0].replace(/['"{]+/g, '');
+	   var region = region1.replace(" ", '');
+	   var tooltips = regiones1[3].replace(/['"}]+/g, '');
+	   areasTooltip.areas[region] = {
+	           tooltip: {
+	               content: "<span style=\"font-weight:bold;\">" + tooltips  + "</span><br />"
+	           }
+	       };
+	  }
+   
+
+        $(function () {
+            $(".mapcontainer").mapael({
+            	map: {
+                    name: "world_countries_mercator",
+                    zoom: {
+                        enabled: true
+                    },
+                    defaultArea: {
+                        attrs: {
+                            fill: areaInitColor,
+                            stroke: "white",
+                            "stroke-width": 1,
+                            cursor: "pointer"
+                        },
+                        attrsHover: {
+                            animDuration: 50,
+                            fill:  "#212529" ,
+                            cursor: "pointer"
+                        },
+                        eventHandlers: {
+                            click: function (e, id, mapElem, textElem) {
+                            	window.location.href="http://localhost:8080/map/"+id;
+                                
+                            }
+                        }
+                    }
+                },
+                areas : {
+                	"france": {
+                        tooltip: {content: "<span style=\"font-weight:bold;\" >Francia  </span>"}
+                    },
+                }
+            });
+            //Actuliza con los tooltips de las areas
+            $(".mapcontainer").trigger('update', [{ mapOptions: areasTooltip }]);
+            
+        });
+        
+       
+        /*]]>*/
+        </script>
+        
+        
+<body>
+<link rel="stylesheet" type="text/css" href="static/css/table.css" th:href="@{/css/table.css}">
+
+	<nav th:replace="fragments/nav" />
+	
+	<div id="container" class="container container-form" style="">
+		
+		<div>
+			<h1 class="text-light" th:text="#{nav.allmaps}">Todos los mapas</h1>
+			
+		</div>
+		
+		<div id="contenedor" class="mapcontainer">
+			<center><div id="map-container" style = "margin-top:10px; width: 50%;" ><div class="map"><h1 th:text="#{map.loading}">Loading map</h1></div></div></center>		
+		</div>
+	
+		<div class="table-responsive">
+			<table id="mapsList" class="table table-hover table-dark table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col" th:text="#{form.name}">Nombre</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="masterMap: ${masterMapList}">
+						<td><a id="linkmap" th:href="@{'/map/'+ ${masterMap.namecode}}" th:text="#{${masterMap.nameMap}}"></td>
+						
+					</tr>
+				</tbody>
+			</table>
+			</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<nav style="background-color: #212529;" class="navbar navbar-expand-lg navbar-dark">
+	<a class="navbar-brand" href="/">MapsGenerator</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false"
+		aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			
+			<li class="nav-item dropdown">
+	        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkWorld" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  th:text="#{Mundo}"> Mundo</a>
+	       		 	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	       		 		<a id="continents" class="dropdown-item" href="/map/continents" th:text="#{Continentes}">Continents </a>	
+	       		 		<a class="dropdown-item" href="/map/world_countries_mercator" th:text="#{PaisesMercator}">Paises </a>
+	       		 		<a class="dropdown-item" href="/map/world_miller" th:text="#{PaisesMiller}">Paises </a>
+	       		 		<a class="dropdown-item" href="/map/world_robinson" th:text="#{PaisesRobinson}">Paises </a>
+	       		 		<a class="dropdown-item" href="/map/world_regions" th:text="#{Regiones}">Regiones </a>	          		
+	       		 	</div>
+	     	 </li>
+	     	 <li class="nav-item dropdown">
+	        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  th:text="#{Europa}"> Europa</a>
+	       		 	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	       		 		<a class="dropdown-item" href="/map/europa"  th:text="#{Paises}">Países</a>
+	       		 		<a class="dropdown-item" href="/map/DE" th:text="#{Alemania}">Alemania</a>
+	       		 		<a class="dropdown-item" href="/map/ES" th:text="#{España}">España</a>
+	       		 		<a class="dropdown-item" href="/map/FR" th:text="#{Francia}">Francia </a>
+	       		 		<a class="dropdown-item" href="/map/GB" th:text="#{GranBretaña}" >Gran Bretaña</a>
+		          		<a class="dropdown-item" href="/map/IT" th:text="#{Italia}">Italia</a>
+		          		<a class="dropdown-item" href="/map/RU" th:text="#{Rusia}">Russia</a>		          		
+		        	</div>
+	     	 </li>
+	     	 <li class="nav-item dropdown">
+	        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="#{America}"> América</a>
+	       		 	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	       		 		<a class="dropdown-item" href="/map/america"  th:text="#{Paises}">Países</a>
+		          		<a class="dropdown-item" href="/map/namerica" th:text="#{Norteamerica}">Norteamérica </a>
+		          		<a class="dropdown-item" href="/map/saamerica" th:text="#{Sudamerica}">Sudamérica </a>
+		          		<a class="dropdown-item" href="/map/AR" th:text="#{Argentina}">Argentina </a>
+		          		<a class="dropdown-item" href="/map/BR" th:text="#{Brasil}">Brasil </a>
+		          		<a class="dropdown-item" href="/map/MX" th:text="#{México}">Mexico </a>
+		          		<a class="dropdown-item" href="/map/US" th:text="#{USA}">USA </a>
+		        	</div>
+	     	 </li>
+	     	 <li class="nav-item dropdown">
+	        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  th:text="#{Asia}"> Asia</a>
+	       		 	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	       		 		<a class="dropdown-item" href="/map/asia" th:text="#{Paises}">Países </a>
+		          		<a class="dropdown-item" href="/map/CN"  th:text="#{China}">China</a>
+		          		<a class="dropdown-item" href="/map/KR" th:text="#{CoreaSur}">Corea del Sur</a>
+		          		<a class="dropdown-item" href="/map/IN"  th:text="#{India}">India</a>
+		          		<a class="dropdown-item" href="/map/ID" th:text="#{Indonesia}">Indonesia</a>
+		          		<a class="dropdown-item" href="/map/JP" th:text="#{Japón}">Japón</a>
+		          		<a class="dropdown-item" href="/map/TH" th:text="#{Tahilandia}">Tahilandia</a>
+		        	</div>
+	     	 </li>
+	     	 <li class="nav-item dropdown">
+	        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="#{Africa}"> África</a>
+	       		 	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	       		 		<a class="dropdown-item" href="/map/africa" th:text="#{Paises}">Países </a>
+	       		 		<a class="dropdown-item" href="/map/DZ" th:text="#{Argelia}">Argelia </a>
+	       		 		<a class="dropdown-item" href="/map/EG" th:text="#{Egipto}">Egipto </a>
+	       		 		<a class="dropdown-item" href="/map/MG" th:text="#{Madagascar}">Madagascar </a>
+		          		<a class="dropdown-item" href="/map/MA" th:text="#{Marruecos}">Marruecos </a>
+		          		<a class="dropdown-item" href="/map/NA" th:text="#{Namibia}">Namibia </a>
+		          		<a class="dropdown-item" href="/map/ZA" th:text="#{Sudafrica}">Sudáfrica </a>
+		          		
+		        	</div>
+	     	 </li>
+	     	 <li class="nav-item dropdown">
+	        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="#{Oceania}"> Oceanía</a>
+	       		 	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		       		 	<a class="dropdown-item" href="/map/oceania" th:text="#{Paises}">Países </a>
+		          		<a class="dropdown-item" href="/map/AU"  th:text="#{Australia}">Australia</a>
+		          		<a class="dropdown-item" href="/map/SB"  th:text="#{IslasSalomon}">Islas Salomón</a>
+		          		<a class="dropdown-item" href="/map/PG" th:text="#{PapuaNuevaGuinea}">Papúa Nueva Guinea</a>
+		          		<a class="dropdown-item" href="/map/NC" th:text="#{NuevaCaledonia}">Nueva Caledonia</a>
+		          		<a class="dropdown-item" href="/map/NZ" th:text="#{NuevaZelanda}">Nueva Zelanda</a>
+		          		<a class="dropdown-item" href="/map/VU" th:text="#{Vanuatu}">Vanuatu</a>
+		        	</div>
+	     	 </li>
+			<li class="nav-item"><a class="nav-link" href="/maps" th:text="#{nav.allmaps}">Todos los mapas</a></li>
+			<li sec:authorize="isAuthenticated()" class="nav-item"><a id="uploadmap" class="nav-link" href="/uploadMap" th:text="#{nav.uploadmaps}">Subir mapas</a></li>
+			<li id="help" class="nav-item"><a class="nav-link" href="/help" th:text="#{nav.help}">Ayuda</a></li>
+		</ul>
+		<ul class="form-inline my-2 my-lg-0">
+		
+		<!--  Idioma -->
+			<li id="nav-item" class="nav-item dropdown"><a
+				class="btn btn-outline-light my-2 my-sm-0" th:text="#{language.change}" href="#" id="navbarDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> Idioma </a>
+				<div id="languageDropdownMenuButton" class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a id="btnEnglish" class="dropdown-item" href="#" th:text="#{language.en}" value="EN">Ingles</a> 
+					<a id="btnSpanish" class="dropdown-item" href="#" th:text="#{language.es}" value="ES">Español</a>
+					<a id="btnFrench" class="dropdown-item" href="#" th:text="#{language.fr}" value="FR">Frances</a>
+					<a id="btnItalian" class="dropdown-item" href="#" th:text="#{language.it}" value="IT">Italiano</a>
+				</div></li>
+			<!-- Perfil -->
+			<li id="nav-item" sec:authorize="isAuthenticated()" class="nav-item dropdown"><a
+				class="btn btn-outline-light my-2 my-sm-0" th:text="#{welcome.message} + ', '+${#authentication.getPrincipal().getUsername()}" href="#" id="navbarDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> Perfil </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					
+					<a id="administrarUsuarios" sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" href="#" th:href="@{/userList}" th:text="#{user.admin}">Administrar usuarios</a>
+					<a id="crearUsuarios" sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" href="#" th:href="@{/userForm}" th:text="#{form.create}">Crear usuarios</a>
+					<a id="mapasPropuestos" sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" href="#" th:href="@{/uploadedMaps}" th:text="#{uploadedMaps}">Mapas propuestos</a>
+					<a id="myAccount" class="dropdown-item" href="#" th:href="@{/editUser}" th:text="#{nav.account}">Mi cuenta</a>
+					<a id="myMaps" class="dropdown-item" href="#" th:href="@{/myMaps}" th:text="#{nav.mymaps}">Mis mapas</a>
+				</div>
+			</li>
+			<!-- Logout -->
+			<li id="nav-item" class="nav-item" sec:authorize="isAuthenticated()"><a id="logout" class="btn btn-outline-danger my-2 my-sm-0"
+				href="/logout" th:href="@{/logout}" th:text="#{logout.message}"><span >Logout
+				</span><span class="float-right"><i class="fas fa-sign-out-alt"></i></span></a>
+			</li>
+				<!--  Login -->
+				<li id="nav-item" class="nav-item" sec:authorize="!isAuthenticated()"><a id="login" class="btn btn-outline-primary my-2 my-sm-0"
+				href="/login" th:href="@{/login}" th:text="#{login.message}"><span >Login
+				</span><span class="float-right"><i class="fas fa-sign-out-alt"></i></span></a>
+				
+			
+			<!-- Sign up -->
+			<li id="nav-item" class="nav-item" sec:authorize="!isAuthenticated()"><a id="signup" class="btn btn-outline-primary my-2 my-sm-0"
+				href="/signup" th:href="@{/signup}" th:text="#{signup.message}"><span >signup
+				</span><span class="float-right"><i class="fas fa-sign-out-alt"></i></span></a>
+							
+		</ul>
+	</div>
+</nav>

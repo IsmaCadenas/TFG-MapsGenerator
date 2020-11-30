@@ -1,0 +1,11 @@
+#number-img{
+    margin-top: -25px;
+    margin-bottom: -25px;
+    opacity: .70;
+}
+
+#number-img img{
+    width: 50xp;
+    height: 50px;
+    border-radius: 50%;
+}

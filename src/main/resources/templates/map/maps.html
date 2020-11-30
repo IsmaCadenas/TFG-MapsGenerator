@@ -63,16 +63,11 @@ var areaInitColor= "#c2c1c1";
                         },
                         eventHandlers: {
                             click: function (e, id, mapElem, textElem) {
-                            	window.location.href="http://localhost:8080/map/"+id;
+                            	window.location.href="http://localhost:8080/map/"+id.toLowerCase() ;
                                 
                             }
                         }
                     }
-                },
-                areas : {
-                	"france": {
-                        tooltip: {content: "<span style=\"font-weight:bold;\" >Francia  </span>"}
-                    },
                 }
             });
             //Actuliza con los tooltips de las areas

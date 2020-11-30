@@ -25,7 +25,7 @@
     $.extend(true, Mapael,
         {
             maps :  {
-                NA : {
+                na : {
                     width : 1000,
                     height : 966,
                     getCoords : function (lat, lon) {

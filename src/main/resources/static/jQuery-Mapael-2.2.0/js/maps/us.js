@@ -28,7 +28,7 @@
     $.extend(true, Mapael,
         {
             maps :{
-                US : {
+                us : {
                     width : 959,
                     height : 593,
                     latLngToGrid: function(lat, lng, phi1, phi2, midLng, scale) {

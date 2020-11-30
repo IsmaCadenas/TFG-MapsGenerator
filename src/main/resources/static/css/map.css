@@ -1,6 +1,8 @@
+
 @media (max-width: 1200px) {
   #tools {
-    overflow-y: hidden;
+    overflow-y: none;
+    background-color:red;
   }
 }
 #legend-container{

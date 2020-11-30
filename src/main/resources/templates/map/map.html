@@ -481,7 +481,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 	<div class="alert alert-danger text-center" id="loadErrorFormat" style="margin-top:5px;width:97%;display: none;position:absolute; z-index:10;" th:text="#{map.archivoErroneo}" >El archivo cargado no tiene el formato correcto</div>
 	<div id="principalContainer" class="row">
 		
-			<div id="tools" class="col-4 " style="height: 92.8vh; overflow-y: scroll;">
+			<div id="tools" class="col-4 " style="height: 92.8vh; ">
 			
 				
 					<form id="form" style="" th:object="${mapForm}" th:action="${edit}? @{/editMap} : @{/saveMap}" method="post">

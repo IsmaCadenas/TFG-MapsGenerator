@@ -436,7 +436,6 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
                         },
                         eventHandlers: {
                             click: function (e, id, mapElem, textElem) {
-                            	
                                     newData.areas[id] = {
                                         attrs: {
                                             fill: document.getElementById("selectedColor").value                                            
@@ -481,7 +480,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 	<div class="alert alert-danger text-center" id="loadErrorFormat" style="margin-top:5px;width:97%;display: none;position:absolute; z-index:10;" th:text="#{map.archivoErroneo}" >El archivo cargado no tiene el formato correcto</div>
 	<div id="principalContainer" class="row">
 		
-			<div id="tools" class="col-4 " style="height: 100%; overflow-y: none;">
+			<div id="tools" class="col-4 " style="">
 			
 				
 					<form id="form" style="" th:object="${mapForm}" th:action="${edit}? @{/editMap} : @{/saveMap}" method="post">
@@ -555,7 +554,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 									<label class="text-light" th:text="#{map.hidde}" for="hidde">Ocultar</label>
 								</div>
 							</div>
-							<div id="row-election">
+							<div hidden id="row-election">
 								<input type="radio" id="vertical" name="position" checked=true
 									value="vertical" onChange="changeLegendPosition(value)">
 								<label class="text-light" th:text="#{map.vertical}" for="vertical">Vertical</label> <input type="radio"
@@ -743,8 +742,8 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 								<div class="dropdown-menu btn-block" aria-labelledby="btnGroupDrop1">
 									<a th:text="#{map.png}" class="btn btn-block" id="download" download="map.png" href="" onclick="download_img(this);">Formato PNG</a> 
 									<a th:text="#{map.jpg}" class="btn btn-block" id="download" download="map.jpg" href="" onclick="download_img(this);">Formato JPG</a> 
-									<a th:text="#{map.pdf}" class="btn btn-block" id="download" onclick="getPDF()">Formato PDF</a> 
-									<a th:text="#{map.json}" class="btn btn-block" id="JSON" onClick="getJSON()">Formato JSON</a> 
+									<a th:text="#{map.pdf}" class="btn btn-block" id="download" href=""  onclick="getPDF()">Formato PDF</a> 
+									<a th:text="#{map.json}" class="btn btn-block" id="JSON" href=""  onClick="getJSON()">Formato JSON</a> 
 								</div>
 							</div>
 						</div>
@@ -856,7 +855,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 				
 			</div>
 
-			<div id="mapa" class="col-8" style="height: 100%; overflow-y: none;" >
+			<div id="mapa" class="col-8" style="" >
 				<div id="contenedor" class="mapcontainer" style="padding:10px">
 					<center><div id="map-container" style = "margin-top:10px; width: 100%;" ><div class="map"><h1 th:text="#{map.loading}">Loading map</h1></div></div></center>
 					

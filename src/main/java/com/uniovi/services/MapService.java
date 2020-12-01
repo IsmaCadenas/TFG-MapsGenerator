@@ -161,6 +161,8 @@ public class MapService {
 			cadena= cadena + "{ attrs: { fill: " + a.getFill() + ", stroke: " + a.getFill() + " }, label: " + a.getLabel() ;
 			cadena= cadena + "},";		
 		}
+		
+		
 		if(!m.getLegend().isEmpty()) {
 			cadena = cadena.substring(0, cadena.length()-2);
 		}

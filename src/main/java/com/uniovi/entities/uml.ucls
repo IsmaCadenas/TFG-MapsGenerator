@@ -1,133 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.uniovi.entities.Area" project="MapsGenerator" 
-    file="/MapsGenerator/src/main/java/com/uniovi/entities/Area.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="141" x="73" y="6"/>    
+  <class id="1" language="java" name="com.uniovi.entities.Area" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/entities/Area.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="127" width="141" x="-34" y="31"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.uniovi.entities.Legend" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/entities/Legend.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="287" y="-36"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.uniovi.entities.Legend" project="MapsGenerator" 
-    file="/MapsGenerator/src/main/java/com/uniovi/entities/Legend.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="472" y="68"/>    
+  <class id="3" language="java" name="com.uniovi.entities.Map" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/entities/Map.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="470" width="219" x="509" y="-81"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.uniovi.entities.User" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/entities/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="200" width="187" x="182" y="211"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.uniovi.entities.Role" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/entities/Role.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="130" width="154" x="-50" y="232"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.uniovi.controller.MapController" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/controller/MapController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1500" y="262"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.uniovi.entities.Map" project="MapsGenerator" 
-    file="/MapsGenerator/src/main/java/com/uniovi/entities/Map.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="972" y="415"/>    
+  <class id="7" language="java" name="com.uniovi.controller.UserController" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/controller/UserController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1193" y="864"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.uniovi.entities.User" project="MapsGenerator" 
-    file="/MapsGenerator/src/main/java/com/uniovi/entities/User.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="380" y="594"/>    
+  <class id="8" language="java" name="com.uniovi.controller.HomeController" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/controller/HomeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="146" x="1059" y="-207"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.uniovi.entities.Role" project="MapsGenerator" 
-    file="/MapsGenerator/src/main/java/com/uniovi/entities/Role.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="112" y="524"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <class id="9" language="java" name="com.uniovi.services.MapService" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/services/MapService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="378" width="223" x="843" y="89"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.uniovi.entities.MasterMap" project="MapsGenerator" 
-    file="/MapsGenerator/src/main/java/com/uniovi/entities/MasterMap.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="387" width="187" x="1223" y="-145"/>    
+  <interface id="10" language="java" name="com.uniovi.repositories.MapRepository" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/repositories/MapRepository.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="813" y="809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
-  <class id="7" language="java" name="com.uniovi.entities.MasterArea" project="MapsGenerator" 
-    file="/MapsGenerator/src/main/java/com/uniovi/entities/MasterArea.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1226" y="487"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  </interface>  
+  <class id="11" language="java" name="com.uniovi.entities.MasterMap" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/entities/MasterMap.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="187" x="-45" y="527"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="com.uniovi.entities.UploadMap" project="MapsGenerator" 
-    file="/MapsGenerator/src/main/java/com/uniovi/entities/UploadMap.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="405" width="153" x="1504" y="82"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <class id="12" language="java" name="com.uniovi.entities.MasterArea" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/entities/MasterArea.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="131" x="256" y="549"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="9">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="10" name="user">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="11" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="12">    
+  <class id="13" language="java" name="com.uniovi.entities.UploadMap" project="TFG-MapsGenerator" 
+    file="/TFG-MapsGenerator/src/main/java/com/uniovi/entities/UploadMap.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="150" width="153" x="472" y="660"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="14">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="13" name="areas">        
-        <position height="0" width="0" x="-92" y="11"/>      
+      <attribute id="15" name="mapService">        
+        <position height="0" width="0" x="112" y="-24"/>      
       </attribute>      
-      <multiplicity id="14" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-92" y="11"/>      
+      <multiplicity id="16" minimum="0" maximum="1">        
+        <position height="0" width="0" x="112" y="-24"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="15">    
+  <association id="17">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="16" name="legend">        
+      <attribute id="18" name="legend">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="17" minimum="0" maximum="2147483647">        
+      <multiplicity id="19" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="18">    
+  <association id="20">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="19" name="areas">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="21" name="areas">        
+        <position height="0" width="0" x="-42" y="49"/>      
       </attribute>      
-      <multiplicity id="20" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="22" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-42" y="49"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="22" name="roles">        
+  <association id="23">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="24" name="repository">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="23" minimum="0" maximum="2147483647">        
+      <multiplicity id="25" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="27" name="mapService">        
+        <position height="0" width="0" x="112" y="-24"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="1">        
+        <position height="0" width="0" x="112" y="-24"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="30" name="areas"/>      
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="33" name="user">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="36" name="roles">        
+        <position height="0" width="0" x="4" y="-106"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="4" y="-106"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    

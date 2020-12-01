@@ -227,7 +227,7 @@ public class UserController {
 				model.addAttribute("roles",roleRepository.findAll());
 				model.addAttribute("editMode","true");
 				model.addAttribute("passwordForm", new ChangePasswordForm(user.getId()));
-				return "map/editUser";
+				return "user/editUser";
 			}
 		}
 		model.addAttribute("userList", userService.getAllUsers());

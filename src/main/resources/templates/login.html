@@ -10,7 +10,7 @@
 		<div id="main-section" class="main-section">
 			<div id="modal-box" class="modal-content">
 				<!--  Imagen -->
-				<div id="user-img" class="col-12 user-img"> <img src="static/img/user.png" th:src="@{/img/user.png}" /> </div>
+				<div id="user-img" class="col-12 user-img"> <img alt="Img" src="static/img/user.png" th:src="@{/img/user.png}" /> </div>
 				<!--  Formulario -->
 				<form class="col-12" th:action="@{/login}" method="post">
 					<div class="form-group-login" id="user-group"> <input type="text" class="form-control" th:placeholder="#{form.user}" name="username" id="username"/> </div>

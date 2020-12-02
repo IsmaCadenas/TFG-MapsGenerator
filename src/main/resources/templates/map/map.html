@@ -624,7 +624,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 								<h5 th:text="#{map.title}" class="text-light">Título</h5> 
 								<div class="row">
 									<div class="col-3">
-										<label th:text="#{map.color}" class="text-light" for="colorTitleLegend ">Color</label> 
+										<label th:text="#{map.color}" class="text-light" for="colorTitleLegend">Color</label> 
 										<input th:field="${mapForm.LegendTitleColor}" class="form-check-label text-light " id="colorTitleLegend" onChange="changeLegendTitleColor(value)" type="color"> 
 									</div>
 									<div class="col-5">
@@ -724,10 +724,14 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 						<div>
 							<label hidden="true" for="legendInput">LegendInput</label>
 							<input type="text" class="legendInput" th:field="${mapForm.legendInput}" hidden="true" id="legendInput"> 
-							<input type="text" class="area1" hidden="true" th:field="${mapForm.area1fill}"> 
-							<input type="text" class="namecode" hidden="true" th:field="${mapForm.namecode}">
-							<input type="text" class="edited" hidden="true" th:field="${mapForm.edited}"> 
-							<input type="text" class="editedLegend" hidden="true" th:field="${mapForm.editedLegend}">
+							<label hidden="true" for="area1fill">Area</label>
+							<input type="text" class="area1" hidden="true" th:field="${mapForm.area1fill}" id="area1fill"> 
+							<label hidden="true" for="namecode">Namecode</label>
+							<input type="text" class="namecode" hidden="true" id="namecode" th:field="${mapForm.namecode}">
+							<label hidden="true" for="edited">Edited</label>
+							<input type="text" class="edited" hidden="true" id="edited" th:field="${mapForm.edited}"> 
+							<label hidden="true" for="editedLegend">editedLegend</label>
+							<input type="text" class="editedLegend" hidden="true" id="editedLegend" th:field="${mapForm.editedLegend}">
 						</div>
 
 <div id="box-form-map" >

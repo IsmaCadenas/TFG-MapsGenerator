@@ -564,7 +564,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 									for="horizontal">Horizontal</label>
 							</div>
 							<div id="row-election" class="form-group">
-								<h5 th:text="#{map.legendtitle}" class="text-light">Título de la leyenda</h5> 
+								<label for="legendTitle" th:text="#{map.legendtitle}" class="text-light">Título de la leyenda</label> 
 								<input th:placeholder="#{map.legendtitle}"  onChange="changeLegendTitle(value)" class="form-control bg-dark text-light" id="legendTitle" type="text" th:field="${mapForm.legendTitle}">
 							</div>
 							<div id="row-election"><h5 class="text-light" th:text="#{map.legendStyle}">Estilo de la leyenda</h5> </div>
@@ -722,7 +722,8 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 
 
 						<div>
-							<input type="text" class="legendInput" th:field="${mapForm.legendInput}" hidden="true"> 
+							<label hidden="true" for="legendInput">LegendInput</label>
+							<input type="text" class="legendInput" th:field="${mapForm.legendInput}" hidden="true" id="legendInput"> 
 							<input type="text" class="area1" hidden="true" th:field="${mapForm.area1fill}"> 
 							<input type="text" class="namecode" hidden="true" th:field="${mapForm.namecode}">
 							<input type="text" class="edited" hidden="true" th:field="${mapForm.edited}"> 

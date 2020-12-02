@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="fragments/head" />
+<head th:replace="fragments/head" ><title>MapsGenerator</title></head>
 <body  id="bodySignupLogin">
 	<!-- Barra de Navegación superior -->
 	<nav th:replace="fragments/nav" />
@@ -18,7 +18,7 @@
 					<button id="confirm" type="submit" class="btn btn-primary btn-lg text-lg-center" th:text="#{signin.confirm}"> <i class="fas fa-sign-in-alt"> </i> Ingresar</button>
 				</form>
 				<!--  Botón registrarse -->
-				<div class="col-12 forgot"> <a id="register" class="btn btn-info  text-lg-center" href="/signup"th:href="@{/signup}" th:text="#{signup.message}">Registrarse</a> </div>
+				<div class="col-12 forgot"> <a id="register" class="btn btn-info text-lg-center" href="/signup"th:href="@{/signup}" th:text="#{signup.message}">Registrarse</a> </div>
 
 				<!--  Errores -->
 				<div th:if="${param.error}" class="alert alert-danger" role="alert" th:text="#{signup.invalid}">Invalid username and password.</div>

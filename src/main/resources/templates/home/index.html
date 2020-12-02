@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="fragments/head" />
+<head th:replace="fragments/head" ><title>MapsGenerator</title></head>
 
 <body>
 
@@ -45,7 +45,7 @@
 								<td ><a id="linkmap" th:text="${map.name}" href="#" th:href="@{'/editMap/'+ ${map.id}}"></td>
 								<td>
 									<span>
-										<a id="linkmap" href="#" th:href="@{'/editMap/'+ ${map.id}}"><i class="fas fa-edit"></i></a>
+										<a id="linkmap" href="#" th:href="@{'/editMap/'+ ${map.id}}"><em class="fas fa-edit"></em></a>
 									</span>
 								</td>
 							</tr>

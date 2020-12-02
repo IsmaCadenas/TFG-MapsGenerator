@@ -18,7 +18,7 @@
 			<div sec:authorize="isAuthenticated()" class="col col-sm-3" >
 				<div style="margin-bottom: 10px;">
 					<div>
-						<h2 class="text-light" th:text="#{index.perfil}">Mi perfil</h2>
+						<h1 class="text-light" th:text="#{index.perfil}">Mi perfil</h1>
 					</div>
 					<div id="nav-list" class="list-group">
 					  <a sec:authorize="hasRole('ROLE_ADMIN')" id="linknav" class="list-group-item list-group-item-action list-group-item-dark text-light" href="#" th:href="@{/userList}" th:text="#{user.admin}">Administrar usuarios</a>
@@ -30,7 +30,7 @@
 					</div>
 				</div>
 				<div>
-					<h2 class="text-light" th:text="#{index.lastMaps}">Mis últimos mapas</h2>
+					<h1 class="text-light" th:text="#{index.lastMaps}">Mis últimos mapas</h1>
 				</div>
 				<div class="table-responsive">
 					<table id="mapaList" class="table table-hover table-dark table-striped ">
@@ -56,13 +56,13 @@
 			</div>
 			<div class="col"  style="">
 				<div>
-					<h2 class="text-light" th:text="#{index.mapasMasUtilizados}">Mapas más utilizados</h2>
+					<h1 class="text-light" th:text="#{index.mapasMasUtilizados}">Mapas más utilizados</h1>
 				</div>
 				<div class="row row-cols-1 row-cols-md-3">
 				  <div class="col mb-4">
 				  <a id="linkmap" href="/map/fr" >
 				    <div id="cardmap" class="card h-100">
-				      <img alt="Img" src="./../img/france_map.png" class="card-img-top">
+				      <img alt="ImgFrance" src="./../img/france_map.png" class="card-img-top">
 				      <div id="cardmap" class="card-body ">
 				        <h5 class="card-title" th:text="#{Francia}">France</h5>
 						<p class="card-text"  th:text="#{index.infoFrance}">Mapa de las regiones de Francia</p>
@@ -73,7 +73,7 @@
 				  <div class="col mb-4">
 				  <a id="linkmap" href="/map/world_countries_mercator" >
 				    <div id="cardmap" class="card h-100">
-				      <img alt="Img" src="./../img/world_map.png" class="card-img-top">
+				      <img alt="ImgWorld" src="./../img/world_map.png" class="card-img-top">
 				      <div id="cardmap" class="card-body">
 				        <h5 class="card-title" th:text="#{Mundo}">Mundo</h5>
 						<p class="card-text" th:text="#{index.infoMundo}">Mapa del mundo con todos sus países</p>
@@ -84,7 +84,7 @@
 				  <div class="col mb-4">
 				  <a id="linkmap" href="/map/es" >
 				    <div id="cardmap" class="card h-100">
-				      <img alt="Img" src="./../img/spain_map.png" class="card-img-top">
+				      <img alt="ImgSpain" src="./../img/spain_map.png" class="card-img-top">
 				      <div id="cardmap" class="card-body">
 				        <h5 class="card-title" th:text="#{España}">Spain</h5>
 				        <p class="card-text" th:text="#{index.infoSpain}">Mapa de las provincias de España</p>
@@ -95,7 +95,7 @@
 				  <div class="col mb-4">
 				  <a id="linkmap" href="/map/us" >
 				    <div id="cardmap" class="card h-100">
-				      <img alt="Img" src="./../img/usa_map.png" class="card-img-top">
+				      <img alt="ImgUSA" src="./../img/usa_map.png" class="card-img-top">
 				      <div id="cardmap" class="card-body">
 				        <h5 class="card-title" th:text="#{USA}">USA</h5>
 						<p class="card-text" th:text="#{index.infoUSA}">Mapa de los estados de USA</p>
@@ -109,7 +109,7 @@
 				  <div class="col mb-4">
 				  <a id="linkmap" href="/map/europa" >
 				    <div id="cardmap" class="card h-100">
-				      <img alt="Img" src="./../img/europe_map.png" class="card-img-top">
+				      <img alt="ImgEurope" src="./../img/europe_map.png" class="card-img-top">
 				      <div id="cardmap" class="card-body">
 				        <h5 class="card-title" th:text="#{Europa}">Europe</h5>
 						<p class="card-text" th:text="#{index.infoEuropa}">Mapa de los paises de Europa</p>
@@ -120,7 +120,7 @@
 				  <div class="col mb-4">
 				  <a id="linkmap" href="/map/cn" >
 				    <div id="cardmap" class="card h-100">
-				      <img alt="Img" src="./../img/china_map.png" class="card-img-top">
+				      <img alt="ImgChine" src="./../img/china_map.png" class="card-img-top">
 				      <div id="cardmap" class="card-body">
 				        <h5 class="card-title" th:text="#{China}">China</h5>
 						<p class="card-text" th:text="#{index.infoChina}">Mapa de las provincias de China</p>
@@ -131,7 +131,7 @@
 				  <div class="col mb-4">
 				  <a id="linkmap" href="/map/it" >
 				    <div id="cardmap" class="card h-100">
-				      <img alt="Img" src="./../img/italy_map.png" class="card-img-top">
+				      <img alt="ImgItaly" src="./../img/italy_map.png" class="card-img-top">
 				      <div id="cardmap" class="card-body">
 				        <h5 class="card-title" th:text="#{Italia}">Itailia</h5>
 				        <p class="card-text" th:text="#{index.infoItalia}">Mapa de las provincias de Italia</p>
@@ -142,7 +142,7 @@
 				  <div class="col mb-4">
 				  <a id="linkmap" href="/map/asturias" >
 				    <div id="cardmap" class="card h-100">
-				      <img alt="Img" src="./../img/asturias_map.png" class="card-img-top">
+				      <img alt="ImgAsturias" src="./../img/asturias_map.png" class="card-img-top">
 				      <div id="cardmap" class="card-body">
 				        <h5 class="card-title" >Asturias</h5>
 						<p class="card-text" th:text="#{index.infoAsturias}">Mapa de los concejos de Asturias</p>
@@ -150,12 +150,9 @@
 				    </div>
 				    </a>
 				  </div>
-				  
 				</div>
 			</div>
 		</div>
-		
 	</div>
-
 </body>
 </html>

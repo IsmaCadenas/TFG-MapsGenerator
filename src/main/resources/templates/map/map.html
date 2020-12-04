@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="fragments/head" />
+<head th:replace="fragments/head" ><title>MapsGenerator</title></head>
 <body>	
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
@@ -489,13 +489,13 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 						<h1 class="text-light" th:text="#{${nameMap}}">Mapa del mundo</h1>
 						<div sec:authorize="isAuthenticated()" id="box-form-map" >
 							<div class="form-group">
-								<h4 class="text-light" th:text="#{map.mapname}" >Nombre del mapa</h4>
+								<label style="font-size:18px;" for="mapname" class="text-light" th:text="#{map.mapname}" >Nombre del mapa</label>
 								<input id="mapname" class="text-light bg-dark form-control" th:placeholder="#{map.mapname}" type="text" th:field="${mapForm.name}">
 							</div>
 						</div>
 						<div id="box-form-map" >
 							<div>
-								<h4 class="text-light" th:text="#{map.configuration}">Configuración del mapa</h4>
+								<label style="font-size:18px" class="text-light" th:text="#{map.configuration}">Configuración del mapa</label>
 							</div>
 							<div class="row" id="row-election">
 								<div class="form-check col-6">
@@ -545,7 +545,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 						</div>
 						<div id="box-form-map" >
 							<div>
-								<h4 class="text-light" th:text="#{map.legendconfiguration}" >Configuración de la leyenda</h4>
+								<label style="font-size:18px" class="text-light" th:text="#{map.legendconfiguration}" >Configuración de la leyenda</label>
 								<div id="row-election">
 									<input class="text-light bg-dark" type="radio" id="show" name="show" checked=true value="true" onChange="showLegend(value)"> 
 									<label class="text-light" th:text="#{map.show}" for="show">Mostrar</label> 
@@ -567,7 +567,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 								<label for="legendTitle" th:text="#{map.legendtitle}" class="text-light">Título de la leyenda</label> 
 								<input th:placeholder="#{map.legendtitle}"  onChange="changeLegendTitle(value)" class="form-control bg-dark text-light" id="legendTitle" type="text" th:field="${mapForm.legendTitle}">
 							</div>
-							<div id="row-election"><h5 class="text-light" th:text="#{map.legendStyle}">Estilo de la leyenda</h5> </div>
+							<div id="row-election"><label style="font-size:16px" class="text-light" th:text="#{map.legendStyle}">Estilo de la leyenda</label> </div>
 							
 							<div class="row" id="row-election">
 								<div class="form-check col-6">
@@ -621,7 +621,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 								</div>
 							</div>
 							<div id="row-election" >
-								<h5 th:text="#{map.title}" class="text-light">Título</h5> 
+								<label style="font-size:16px" th:text="#{map.title}" class="text-light">Título</label> 
 								<div class="row">
 									<div class="col-3">
 										<label th:text="#{map.color}" class="text-light" for="colorTitleLegend">Color</label> 
@@ -663,7 +663,7 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 								</div>
 							</div>
 						<div id="row-election">
-							<h5 th:text="#{map.labels}" class="text-light">Etiquetas</h5> 
+							<label style="font-size:16px" th:text="#{map.labels}" class="text-light">Etiquetas</label> 
 							<div class="row">
 								<div class="col-3">
 								<label th:text="#{map.color}" for="colorLabelLegend"
@@ -714,13 +714,10 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 						</div>
 					
 						<div id="slicesLegend">
-							<h5  class="text-light" th:text="#{map.labelConfiguration}" id="legend-configuration">Configuración de etiquetas</h5>
+							<label style="font-size:16px"  class="text-light" th:text="#{map.labelConfiguration}" id="legend-configuration">Configuración de etiquetas</label>
 						</div>
 					
 					</div>
-					
-
-
 						<div>
 							<label hidden="true" for="legendInput">LegendInput</label>
 							<input type="text" class="legendInput" th:field="${mapForm.legendInput}" hidden="true" id="legendInput"> 
@@ -735,8 +732,9 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 						</div>
 
 <div id="box-form-map" >
+
 						<nav class="navbar download">
-						
+					
 						<div class="btn-group btn-block"  >
 
 							<div class="btn-group btn-block" role="group">
@@ -747,9 +745,10 @@ var leyenda = { 'legend' : {	'area' : { 'mode' : "vertical", 'display' : true, '
 								<div class="dropdown-menu btn-block" >
 									<a th:text="#{map.png}" class="btn btn-block" id="download" download="map.png" href="" onclick="download_img(this);">Formato PNG</a> 
 									<a th:text="#{map.jpg}" class="btn btn-block" id="download" download="map.jpg" href="" onclick="download_img(this);">Formato JPG</a> 
-									<a th:text="#{map.pdf}" class="btn btn-block" id="download" href=""  onclick="getPDF()">Formato PDF</a> 
-									<a th:text="#{map.json}" class="btn btn-block" id="JSON" href=""  onClick="getJSON()">Formato JSON</a> 
+									<a th:text="#{map.pdf}" class="btn btn-block" id="download" onclick="getPDF()">Formato PDF</a> 
+									<a th:text="#{map.json}" class="btn btn-block" id="JSON" onClick="getJSON()">Formato JSON</a> 
 								</div>
+								
 							</div>
 						</div>
 						<label id="import" class="btn btn-danger btn-block" for="file-input" th:text="#{map.import}">Importar JSON</label>

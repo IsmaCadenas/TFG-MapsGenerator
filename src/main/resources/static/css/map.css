@@ -1,4 +1,17 @@
+#download, #JSON{
+	color: black;
+}
+#download:hover, #JSON:hover{
+	color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
 
+#download:active, #JSON:active{
+	color: #fff;
+    text-decoration: none;
+    background-color: #007bff;
+}
 @media (min-width: 1200px) {
   #tools, #mapa {
     overflow-y: scroll !important;

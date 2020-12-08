@@ -11,8 +11,8 @@ public class TooltipGenerator {
 		File archivo = null;
 	      FileReader fr = null;
 	      BufferedReader br = null;
-	      int areanum=2318;
-	      int mapid=56;
+	      int areanum=2336;
+	      int mapid=57;
 	      try {
 	         // Apertura del fichero y creacion de BufferedReader para poder
 	         // hacer una lectura comoda (disponer del metodo readLine()).
@@ -30,8 +30,8 @@ public class TooltipGenerator {
         	 for(String s : lineas) {
         		 String[] tooltips;
         		 tooltips = s.split(":");
-        		 String insert = " INSERT INTO `spring_aplicacion`.`master_area` (`id`, `code`, `tooltip`) VALUES ('" + areanum + "', '"+tooltips[0].replace("\"", "").replace(" ", "".replace("\t", ""))+"', '"+tooltips[1].replace("\"", "").replace(",", "")+"');\n"
-        		 		+ "INSERT INTO `spring_aplicacion`.`mmap_mareas` (`mmap_id`, `marea_id`) VALUES ('" + mapid + "', '" + areanum + "');";
+        		 String insert = " INSERT INTO `database-1`.`master_area` (`id`, `code`, `tooltip`) VALUES ('" + areanum + "', '"+tooltips[0].replace("\"", "").replace(" ", "".replace("\t", ""))+"', '"+tooltips[1].replace("\"", "").replace(",", "")+"');\n"
+        		 		+ "INSERT INTO `database-1`.`mmap_mareas` (`mmap_id`, `marea_id`) VALUES ('" + mapid + "', '" + areanum + "');";
         		 System.out.println(insert);
         		 areanum++;
         	 }

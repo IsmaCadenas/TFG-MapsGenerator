@@ -97,14 +97,15 @@
 					<a id="btnSpanish" class="dropdown-item" href="#" th:text="#{language.es}" value="ES">Español</a>
 					<a id="btnFrench" class="dropdown-item" href="#" th:text="#{language.fr}" value="FR">Frances</a>
 					<a id="btnItalian" class="dropdown-item" href="#" th:text="#{language.it}" value="IT">Italiano</a>
-				</div></li>
+					<a id="btnAleman" class="dropdown-item" href="#" th:text="#{language.de}" value="DE">Alemán</a>
+				</div>
+			</li>
 			<!-- Perfil -->
 			<li id="nav-item" sec:authorize="isAuthenticated()" class="nav-item dropdown"><a
 				class="btn btn-outline-light my-2 my-sm-0" th:text="#{welcome.message} + ', '+${#authentication.getPrincipal().getUsername()}" href="#" id="navbarDropdown"
 				role="button" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="false"> Perfil </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					
 					<a id="administrarUsuarios" sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" href="#" th:href="@{/userList}" th:text="#{user.admin}">Administrar usuarios</a>
 					<a id="crearUsuarios" sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" href="#" th:href="@{/userForm}" th:text="#{form.create}">Crear usuarios</a>
 					<a id="mapasPropuestos" sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" href="#" th:href="@{/uploadedMaps}" th:text="#{uploadedMaps}">Mapas propuestos</a>

@@ -63,16 +63,26 @@ public class GoogleDrive {
         //saveFiles();
     }
     
+    /**
+     * Método para guardar archivos en GoogleDrive
+     * 
+     * @param username Nombre del usuario que sube el mapa
+     * @param mapname Nombre del mapa que sube el usuario
+     * @param format Extensión del archivo subido
+     * @throws GeneralSecurityException
+     * @throws IOException
+     */
     public void saveFile(String username, String mapname, String format) throws GeneralSecurityException, IOException {
     	// Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         Drive service = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
-                .build();        
+                .build(); 
+        //Save the file
         File fileMetadata = new File();
         fileMetadata.setName(username+ "-"+ mapname+"."+format);
         java.io.File filePath = new java.io.File("./src/main/resources/static/jQuery-Mapael-2.2.0/js/userMaps/"+username+"/"+mapname+"."+format);
-        FileContent mediaContent = new FileContent("file/"+format, filePath);
+        FileContent mediaContent = new FileContent("text/"+format, filePath);
         File file = service.files().create(fileMetadata, mediaContent)
             .setFields("id")
             .execute();

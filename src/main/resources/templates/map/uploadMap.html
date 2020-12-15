@@ -10,12 +10,13 @@
 	<nav th:replace="fragments/nav" />
 
 
-	<div id="container" class="container container-form">
-	<div class="alert alert-success text-center" role="alert" id="loadSuccess" style="margin-top:5px;width:80%;display: none;position:absolute; z-index:10;" th:text="#{map.cargadoCorrecto}">El mapa se ha cargado correctamente</div>
-	<div class="alert alert-danger text-center" id="loadErrorFormat" style="margin-top:5px;width:80%;display: none;position:absolute; z-index:10;" th:text="#{map.archivoErroneo}" >El archivo cargado no tiene el formato correcto</div>		
-	<h1 class="text-light" th:text="#{uploadMap.upload}">Sube tu propio mapa a la aplicación</h1>
-		<p class="text-light" th:text="#{uploadMap.explicacion}">Para subir un mapa a la aplicación debes
-			seguir los siguientes pasos:</p>
+	<div  class="container container-form" >
+		<div class="alert alert-success text-center" role="alert" id="loadSuccess" style="margin-top:5px;position:absolute;display:none; z-index:10;" th:text="#{map.cargadoCorrecto}">El mapa se ha cargado correctamente</div>
+		<div class="alert alert-danger text-center" id="loadErrorFormat" style="margin-top:5px;display: none;position:absolute; z-index:10;" th:text="#{map.archivoErroneo}" >El archivo cargado no tiene el formato correcto</div>		
+		 
+		<h1 class="text-light" th:text="#{uploadMap.upload}">Sube tu propio mapa a la aplicación</h1>
+			<p class="text-light" th:text="#{uploadMap.explicacion}">Para subir un mapa a la aplicación debes
+				seguir los siguientes pasos:</p>
 
 		<div id="accordion">
 			<div class="card bg-dark">
@@ -173,7 +174,7 @@
 									    $("#loadmap").css("visibility","visible");
 								    }catch (e){
 								    	$("#loadErrorFormat").css("display", "flex");
-							            setTimeout(function(){	$("#loadErrorFormat").hide('slow'); }, 3000);
+							            setTimeout(function(){	$("#loadErrorFormat").hide('slow'); }, 5000);
 								    }
 								    
 								    

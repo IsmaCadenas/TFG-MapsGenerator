@@ -63,16 +63,16 @@ public class GoogleDrive {
         //saveFiles();
     }
     
-    public void saveFiles() throws GeneralSecurityException, IOException {
+    public void saveFile(String username, String mapname, String format) throws GeneralSecurityException, IOException {
     	// Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         Drive service = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
                 .build();        
         File fileMetadata = new File();
-        fileMetadata.setName("admin.txt");
-        java.io.File filePath = new java.io.File("./src/main/resources/static/jQuery-Mapael-2.2.0/js/userMaps/admin/admin.txt");
-        FileContent mediaContent = new FileContent("file/txt", filePath);
+        fileMetadata.setName(username+ "-"+ mapname+"."+format);
+        java.io.File filePath = new java.io.File("./src/main/resources/static/jQuery-Mapael-2.2.0/js/userMaps/"+username+"/"+mapname+"."+format);
+        FileContent mediaContent = new FileContent("file/"+format, filePath);
         File file = service.files().create(fileMetadata, mediaContent)
             .setFields("id")
             .execute();

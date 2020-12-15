@@ -1,0 +1,5 @@
+"AFG1741":"esti",
+"AFG1742":"mapa",
+"AFG1743":"yeq",
+"AFG1744":"la",
+"AFG1745":"hostia"

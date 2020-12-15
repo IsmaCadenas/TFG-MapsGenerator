@@ -69,11 +69,11 @@ public class UploadMapService {
 			fileWriter = new FileWriter("./src/main/resources/static/jQuery-Mapael-2.2.0/js/userMaps/"+username+"/"+map.getName()+".js");
 			fileWriter.write(map.getInputJS());
 			fileWriter.close();
-			
+			drive.saveFile(username, map.getName(), "js");
 			fileWriter = new FileWriter("./src/main/resources/static/jQuery-Mapael-2.2.0/js/userMaps/"+username+"/"+map.getName()+".txt");
 			fileWriter.write(transformAreas(map.getInputAreas()));
 			fileWriter.close();
-			drive.saveFiles();
+			drive.saveFile(username, map.getName(), "txt");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -126,6 +126,7 @@ public class MapController {
 		return "map/uploadMap";
 	}
 	
+	
 	@PostMapping("/uploadMap")
 	public String saveUploadMap(Model model, @Valid @ModelAttribute("mapDTO")UploadMap map) {
 		mapService.saveUploadMap(map);

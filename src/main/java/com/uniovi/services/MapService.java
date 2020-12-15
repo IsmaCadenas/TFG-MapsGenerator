@@ -28,6 +28,10 @@ public class MapService {
 	@Autowired MasterMapService masterMapService;
 	@Autowired UploadMapService uploadMapService;
 	
+	/**
+	 * Método que guarda el mapa en la bd
+	 * @param map Map
+	 */
 	public void saveMap(Map map) {
 		createAreas(map);
 		createLegends(map);
@@ -35,6 +39,10 @@ public class MapService {
 		repository.save(map);
 	}
 
+	/**
+	 * Método que asocia el usuario que crea el mapa al mapa
+	 * @param map Map
+	 */
 	private void linkUser(Map map) {
 		try {
 			map.setUser(userService.getLoggedUser());
@@ -43,6 +51,10 @@ public class MapService {
 		}
 	}
 
+	/**
+	 * Método que crea las áreas editadas del mapa
+	 * @param map Map
+	 */
 	private void createAreas(Map map) {
 		Set<Area> areas = new HashSet<>();		
 		String[] list = map.getArea1fill().split(",");
@@ -60,6 +72,10 @@ public class MapService {
 		map.setAreas(areas);	
 	}
 	
+	/**
+	 * Método que crea las leyendas del mapa
+	 * @param map Map
+	 */
 	private void createLegends(Map map) {
 		Set<Legend> legends = new HashSet<>();		
 		String[] list = map.getLegendInput().split("attrs");
@@ -79,11 +95,20 @@ public class MapService {
 		map.setLegend(legends);
 	}
 	
-	
+	/**
+	 * Método que obtiene el mapa por su id
+	 * @param id 
+	 * @return Map
+	 * @throws Exception
+	 */
 	public Map getMapById(Long id) throws Exception {
 		return repository.findById(id).orElseThrow( () -> new Exception("Mapa no encontrado"));
 	}
 
+	/**
+	 * Método que obtiene los mapas del usuario en sesión
+	 * @return Iterable<Map>
+	 */
 	public Iterable<Map> getLoggedUserMaps() {
 		try {
 			return repository.findByUser(userService.getLoggedUser());
@@ -94,7 +119,12 @@ public class MapService {
 	}
 
 	
-	
+	/**
+	 * Método que devuelves las áreas guardadas de un mapa editado
+	 * @param id Long del mapa
+	 * @return String cadena de texto con las áreas
+	 * @throws Exception
+	 */
 	public String getStringAreas(Long id) throws Exception {
 		Map m = getMapById(id);
 		String cadena = "";	
@@ -115,6 +145,11 @@ public class MapService {
 		return cadena;
 	}
 
+	/**
+	 * Elimina un mapa 
+	 * @param id Long 
+	 * @throws Exception
+	 */
 	public void deleteMap(Long id) throws Exception {
 		Map map = getMapById(id);
 		Set<Area> areas = map.getAreas();
@@ -131,6 +166,10 @@ public class MapService {
 		}
 	}
 
+	/**
+	 * Método que borra los mapas del usuario
+	 * @param user User
+	 */
 	public void deleteMaps(User user) {
 		try {
 			Iterable<Map> maps = repository.findByUser(user);
@@ -142,6 +181,11 @@ public class MapService {
 		}
 	}
 
+	/**
+	 * Método que obtiene los nombres de las áreas de un mapa
+	 * @param name String
+	 * @return String una cadena de texto con los nombres de las áreas
+	 */
 	public String getStringTooltips(String name) {
 		MasterMap m = masterMapService.getMapByUsername(name);
 		String cadena = "";
@@ -154,6 +198,12 @@ public class MapService {
 		return cadena;
 	}
 
+	/**
+	 * Método que devuelve las leyendas de un mapa editado
+	 * @param id Long
+	 * @return String una cadena de texto con los datos de las leyendas
+	 * @throws Exception
+	 */
 	public String getStringLegends(Long id) throws Exception {
 		Map m = getMapById(id);
 		String cadena = "[";
@@ -173,6 +223,13 @@ public class MapService {
 		return cadena;	
 	}
 
+	/**
+	 * Método que guarda los datos de un mapa editado
+	 * @param map
+	 * @param edited
+	 * @param editedLegend
+	 * @throws Exception
+	 */
 	public void editMap(Map map, String edited,String editedLegend) throws Exception {
 		Map toMap = getMapById(map.getId());		
 		createAreas(map);
@@ -181,6 +238,13 @@ public class MapService {
 		repository.save(toMap);
 	}
 	
+	/**
+	 * Método que cambia los datos del anterior mapa por los del nuevo mapa
+	 * @param from
+	 * @param to
+	 * @param edited
+	 * @param editedLegend
+	 */
 	protected void mapMap(Map from,Map to,String edited,String editedLegend) {
 		to.setBackground(from.getBackground());
 		to.setBorderColor(from.getBorderColor());
@@ -208,6 +272,12 @@ public class MapService {
 		}
 	}
 
+	/**
+	 * Método que devuelve el nombre del mapa
+	 * @param name
+	 * @return String el nombre del mapa
+	 * @throws Exception
+	 */
 	public String getNameMap(String name) throws Exception {
 		try {
 			MasterMap m = masterMapService.getMapByUsername(name);
@@ -218,10 +288,18 @@ public class MapService {
 		
 	}
 
+	/**
+	 * Método que devuelve los mapas maestros
+	 * @return Iterable<MasterMap>
+	 */
 	public Iterable<MasterMap> getAllMasterMaps() {
 		return masterMapService.getAllMasterMaps();
 	}
 
+	/**
+	 * Método que devuelve los últimos mapas editados por el usuario
+	 * @return Iterator<Map>
+	 */
 	public Iterator<Map> getLastMaps() {
 		List<Map> maps = new ArrayList<Map>();
 		List<Map> lastMaps = new ArrayList<Map>();
@@ -246,19 +324,36 @@ public class MapService {
 		return lastMaps.iterator();
 	}
 
+	/**
+	 * Método que devuelve el ancho del mapa
+	 * @param name
+	 * @return String el ancho del mapa en %
+	 */
 	public String getWidth(String name) {
 		MasterMap m = masterMapService.getMapByUsername(name);
 		return m.getWidth();
 	}
 
+	/**
+	 * Método que guarda un mapa propuesto
+	 * @param map
+	 */
 	public void saveUploadMap(UploadMap map) {
 		uploadMapService.saveUploadMap(map);
 	}
 
+	/**
+	 * Método que obtiene todos los mapas propuestos
+	 * @return UploadedMap 
+	 */
 	public Object getAllUploadedMaps() {
 		return uploadMapService.getAllUploadedMaps();
 	}
 
+	/**
+	 * Método que borra un mapa propuesto
+	 * @param id
+	 */
 	public void deleteUploadMap(Long id) {
 		uploadMapService.deleteUploadMap(id);
 	}

@@ -30,6 +30,7 @@ public class Area implements Serializable{
 		this.identifier=identifier;
 		this.fill=fill;
 	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -58,7 +58,7 @@ public class UsersServiceImpl implements UserService{
 	}
 	
 	/**
-	 * Map everythin but the password.
+	 * Mapea los datos del usuario
 	 * @param from
 	 * @param to
 	 */

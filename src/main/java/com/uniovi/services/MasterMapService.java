@@ -16,7 +16,7 @@ public class MasterMapService {
 	 * @param name
 	 * @return MasterMap
 	 */
-	public MasterMap getMapByUsername(String name) {
+	public MasterMap getMapByNamecode(String name) {
 		return repository.findByNamecode(name);
 	}
 

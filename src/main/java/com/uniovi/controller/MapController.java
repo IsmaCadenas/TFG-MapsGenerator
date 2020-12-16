@@ -71,10 +71,14 @@ public class MapController {
 	public String editMap(ModelMap model, @PathVariable Long id) {
 		Map map;
 		try {
+			map = mapService.getMapById(id);
+			if(map == null) {
+				return "error/403.html";
+			}
 			model.addAttribute("edit", true);
 			model.addAttribute("drawAreas", true);
 			model.addAttribute("drawLegend", true);
-			map = mapService.getMapById(id);
+			
 			String areas = mapService.getStringAreas(id);
 			String legends = mapService.getStringLegends(id);
 			System.out.println("areas: "+areas);
@@ -97,6 +101,7 @@ public class MapController {
 			model.addAttribute("nameScript", nameScript);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return "error/403.html";
 		}
 		return "map/map";
 	}

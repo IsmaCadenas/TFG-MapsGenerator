@@ -102,7 +102,13 @@ public class MapService {
 	 * @throws Exception
 	 */
 	public Map getMapById(Long id) throws Exception {
-		return repository.findById(id).orElseThrow( () -> new Exception("Mapa no encontrado"));
+		for(Map m :getLoggedUserMaps()) {
+			if(m.getId().equals(id)) {
+				return repository.findById(id).orElseThrow( () -> new Exception("Mapa no encontrado"));
+			}
+		}
+		return null;
+		
 	}
 
 	/**
@@ -187,7 +193,7 @@ public class MapService {
 	 * @return String una cadena de texto con los nombres de las áreas
 	 */
 	public String getStringTooltips(String name) {
-		MasterMap m = masterMapService.getMapByUsername(name);
+		MasterMap m = masterMapService.getMapByNamecode(name);
 		String cadena = "";
 		for(MasterArea a : m.getAreas()) {
 			cadena= cadena + a.getCode();
@@ -274,16 +280,16 @@ public class MapService {
 
 	/**
 	 * Método que devuelve el nombre del mapa
-	 * @param name
+	 * @param name codigo del mapa que se quiere mostrar
 	 * @return String el nombre del mapa
 	 * @throws Exception
 	 */
 	public String getNameMap(String name) throws Exception {
 		try {
-			MasterMap m = masterMapService.getMapByUsername(name);
+			MasterMap m = masterMapService.getMapByNamecode(name);
 			return m.getNameMap();
 		}catch (Exception e) {
-			throw new Exception("Username o email ya utilizado");
+			throw new Exception("Mapa no encontrado");
 		}
 		
 	}
@@ -330,7 +336,7 @@ public class MapService {
 	 * @return String el ancho del mapa en %
 	 */
 	public String getWidth(String name) {
-		MasterMap m = masterMapService.getMapByUsername(name);
+		MasterMap m = masterMapService.getMapByNamecode(name);
 		return m.getWidth();
 	}
 

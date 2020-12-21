@@ -11,8 +11,8 @@ public class TooltipGenerator {
 		File archivo = null;
 	      FileReader fr = null;
 	      BufferedReader br = null;
-	      int areanum=2336;
-	      int mapid=57;
+	      int areanum=2378;
+	      int mapid=42;
 	      try {
 	         // Apertura del fichero y creacion de BufferedReader para poder
 	         // hacer una lectura comoda (disponer del metodo readLine()).
